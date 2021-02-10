@@ -6,8 +6,7 @@
  */
 
 #include <iostream>
-#include <iomanip>
-#include <cstdlib>
+#include <cmath>
 using namespace std;
 
 int main(int argc, char const *argv[]){
@@ -15,15 +14,15 @@ int main(int argc, char const *argv[]){
     string user_cont;
     do
     {
-        cout << "Enter length of first side: ";
+        cout << "\nEnter length of first side: ";
         double side_1;
         cin >> side_1;
 
-        cout << "Enter length of second side: ";
+        cout << "\nEnter length of second side: ";
         double side_2;
         cin >> side_2;
 
-        cout << "Enter length of third side: ";
+        cout << "\nEnter length of third side: ";
         double side_3;
         cin >> side_3;
 
@@ -33,18 +32,23 @@ int main(int argc, char const *argv[]){
             s = (side_1 + side_2 + side_3) / 2;
 
             double area;
+            area = sqrt(s * (s - side_1) * (s - side_2) * (s - side_3));
+
+            cout << fixed << setprecision(2);
+
+            cout << "\nArea of the triangle: " << area << endl;
         }
         else
         {
-            cout << "Error: Invalid triangle." << endl;
+            cout << "\nError: Invalid triangle." << endl;
         }
 
-        cout << "Do you want to continue(y/n): ";
+        cout << "\nDo you want to continue(y/n): ";
         cin >> user_cont;
 
     } while (user_cont != "n");
 
-    cout << "DONE!";
+    cout << "\nDONE!";
 
     return 0;
 }//main
